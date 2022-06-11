@@ -17,6 +17,9 @@ isort = "^5.10.1"
 flake8 = "^4.0.1"
 bandit = "^1.7.4"
 safety = "^1.10.3"
+mypy = "^0.961"
+types-requests = "^2.27.30"
+types-beautifulsoup4 = "^4.11.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

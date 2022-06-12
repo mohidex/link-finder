@@ -54,3 +54,5 @@ jobs:
         run: poetry run bandit .
       - name: Run saftey
         run: poetry run safety check
+      - name: Run mypy
+        run: poetry run mypy .

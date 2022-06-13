@@ -14,7 +14,7 @@ import requests
 
 from .exceptions import LinkFinderError
 from .model import UrlItem
-from .utils import get_all_urls
+from .utils import get_all_urls, get_base_url
 
 HTTPResponse = requests.models.Response
 
@@ -51,6 +51,7 @@ class LinkFinder(object):
         self.timeout = timeout
         self.proxies = proxies
         self.session = session or requests.Session()
+        self.base_url = get_base_url(url)
 
     def _request(self, url: str, method: str) -> HTTPResponse:
         try:
@@ -78,7 +79,9 @@ class LinkFinder(object):
             yield found_url
             if _depth > depth:
                 depth += 1
-            for _url in get_all_urls(_response.text):
+            for _url in get_all_urls(
+                html_source=_response.text, base_url=self.base_url
+            ):
                 if _url not in self.marked:
                     self.marked.add(_url)
                     self.queue.append((_url, depth + 1))

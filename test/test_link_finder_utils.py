@@ -31,13 +31,13 @@ class TestLinkFinderUtils:
       """
 
     def test_get_all_links_with_internal_url(self):
-        url_list = get_all_urls(self.html_source, 'https://mohidul.xyz')
+        url_list = get_all_urls(self.html_source, "https://mohidul.xyz")
         assert len(url_list) == 6
 
     def test_get_all_links_with_all_url(self):
-        url_list = get_all_urls(self.html_source, 'https://mohidul.xyz', False)
+        url_list = get_all_urls(self.html_source, "https://mohidul.xyz", False)
         assert len(url_list) == 8
 
     def test_get_all_links_with_escaping_id(self):
-        url_list = get_all_urls(self.html_source, 'https://mohidul.xyz')
+        url_list = get_all_urls(self.html_source, "https://mohidul.xyz")
         assert len(url_list) != 10

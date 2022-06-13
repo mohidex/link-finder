@@ -3,8 +3,9 @@ utils module contains functions/methods that help to find the urls in a html sou
 """
 
 from typing import Optional, Set
+from urllib.parse import urljoin, urlparse
+
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urljoin
 
 
 def get_all_urls(

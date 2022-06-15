@@ -30,7 +30,7 @@ class LinkFinder(object):
     def __init__(
         self,
         url: str,
-        depth: int = 0,
+        depth: int = 1000,
         user_agent: str = "python-requests/2.25.0",
         timeout: int = None,
         proxies: Dict[str, str] = None,
@@ -72,13 +72,18 @@ class LinkFinder(object):
         self.queue.append((self.url, 0))
         depth: int = 0
 
-        while self.queue and depth <= self.max_depth:
+        while self.queue:
             url, _depth = self.queue.popleft()
+            if _depth > depth:
+                depth += 1
+
+            if depth > self.max_depth:
+                break
+
             _response = self._request(url=url, method="GET")
             found_url = UrlItem(url, _response.status_code, depth)
             yield found_url
-            if _depth > depth:
-                depth += 1
+
             for _url in get_all_urls(
                 html_source=_response.text, base_url=self.base_url
             ):

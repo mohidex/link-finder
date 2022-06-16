@@ -13,7 +13,7 @@ Implements the `link_finder` interface, behaving as an web-crawler while collect
 
 ## *Parameters*
 - `url (str)` -  Root url of a website where the crawling process will be start.
-- `depth (int)` - The maximum depth that will be allowed to crawl for any site. If not set or set `0` it will crawl all the availeble links. Defaults to `0`
+- `depth (int)` - The maximum depth that will be allowed to crawl for any site. If not set it will crawl all the availeble links. Defaults to `1000`
 - `user_agent (str)` - User-Agent to use when crawling. Defaults to `python-requests/2.25.0`
 - `timeout (int)` - Waiting time for getting response. Defaults to `None`
 - `proxies (dict)` - Object containing proxies for 'http' and 'https'. Defaults to `None`

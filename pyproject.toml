@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "link-finder"
+name = "website-link-finder"
 packages = [
     { include = "link_finder" },
 ]

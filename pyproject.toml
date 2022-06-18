@@ -1,5 +1,8 @@
 [tool.poetry]
 name = "link-finder"
+packages = [
+    { include = "link_finder" },
+]
 version = "0.1.0"
 description = "A python module to find all the links in a website"
 authors = ["Mohidul Islam <mohidul.nu@gmail.com>"]

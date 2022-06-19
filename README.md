@@ -1,6 +1,12 @@
 # Link Finder
 A python module to find the all links on a website with their status code. URLs will traverse through its child directory in Bredth's first traversal fashion. If the webpage has a lot of pages you can limit its crawling by specifying depth.
 
+# Installation:
+Link Finder is published through PyPi, so if you can’t install it with the system packager, you can install it with easy_install or pip.
+```bash
+pip3 install website-link-finder
+```
+
 # API Guide
 ## `link_finder.finder` 
 Provides the `LinkFinder` class.
